@@ -6,56 +6,59 @@
 //
 
 import SwiftUI
-import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
-
+    @State private var selectedTab = "home"
+    
+    private let bgColor = Color(red: 0.97, green: 0.98, blue: 0.98) 
+    
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
+        ZStack(alignment: .bottom) {
+            
+            bgColor.ignoresSafeArea()
+            
+            VStack {
+                switch selectedTab {
+                case "home":
+                    PlaceholderView(title: "Home", icon: "house.fill")
+                case "diary":
+                    PlaceholderView(title: "Diary", icon: "calendar")
+                case "track":
+                    PlaceholderView(title: "Track", icon: "mappin.and.ellipse")
+                case "menu":
+                    PlaceholderView(title: "Menu", icon: "line.3.horizontal")
+                default:
+                    PlaceholderView(title: "Home", icon: "house.fill")
                 }
             }
-        } detail: {
-            Text("Select an item")
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding(.bottom, 100)
+            
+            CustomTabBar(selectedTab: $selectedTab)
+                .ignoresSafeArea(edges: .bottom)
         }
+        .ignoresSafeArea(edges: .bottom)
     }
+}
 
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
 
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
-            }
+struct PlaceholderView: View {
+    var title: String
+    var icon: String
+    
+    var body: some View {
+        VStack(spacing: 14) {
+            Image(systemName: icon)
+                .font(.system(size: 52))
+                .foregroundColor(Color(red: 0.18, green: 0.77, blue: 0.71))
+            Text(title)
+                .font(.title2).fontWeight(.semibold)
+                .foregroundColor(Color(red: 0.11, green: 0.56, blue: 0.53))
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
 }
