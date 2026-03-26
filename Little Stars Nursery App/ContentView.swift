@@ -10,19 +10,20 @@ import SwiftUI
 struct ContentView: View {
     @State private var selectedTab = "home"
     
-    private let bgColor = Color(red: 0.97, green: 0.98, blue: 0.98) 
+    private let bgColor = Color(red: 0.97, green: 0.98, blue: 0.98)
     
     var body: some View {
         ZStack(alignment: .bottom) {
             
             bgColor.ignoresSafeArea()
             
-            VStack {
+            // Page content
+            Group {
                 switch selectedTab {
                 case "home":
                     PlaceholderView(title: "Home", icon: "house.fill")
                 case "diary":
-                    PlaceholderView(title: "Diary", icon: "calendar")
+                    DiaryView()
                 case "track":
                     PlaceholderView(title: "Track", icon: "mappin.and.ellipse")
                 case "menu":
@@ -32,15 +33,13 @@ struct ContentView: View {
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .padding(.bottom, 100)
-            
+
             CustomTabBar(selectedTab: $selectedTab)
                 .ignoresSafeArea(edges: .bottom)
         }
         .ignoresSafeArea(edges: .bottom)
     }
 }
-
 
 struct PlaceholderView: View {
     var title: String
