@@ -16,16 +16,17 @@ struct ContentView: View {
         ZStack(alignment: .bottom) {
             
             bgColor.ignoresSafeArea()
-            
-            // Page content
+
             Group {
                 switch selectedTab {
                 case "home":
                     PlaceholderView(title: "Home", icon: "house.fill")
                 case "diary":
                     DiaryView()
+                case "chat":
+                    PlaceholderView(title: "Chat", icon: "bubble.left.fill")
                 case "track":
-                    PlaceholderView(title: "Track", icon: "mappin.and.ellipse")
+                    TrackView()
                 case "menu":
                     PlaceholderView(title: "Menu", icon: "line.3.horizontal")
                 default:

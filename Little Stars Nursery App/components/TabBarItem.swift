@@ -20,20 +20,19 @@ struct TabBarItem: View {
     var isSelected: Bool { selectedTab == tab }
     
     var body: some View {
-        VStack(spacing: 5) {
+        VStack(spacing: 3) {
             ZStack {
-              
                 Circle()
                     .fill(isSelected ? activeBg : Color.clear)
-                    .frame(width: 56, height: 56)
+                    .frame(width: 44, height: 44)
                 
                 Image(systemName: icon)
-                    .font(.system(size: 22, weight: .medium))
+                    .font(.system(size: 18, weight: .medium))
                     .foregroundColor(isSelected ? activeColor : inactiveColor)
             }
             
             Text(title)
-                .font(.system(size: 11, weight: isSelected ? .semibold : .regular))
+                .font(.system(size: 10, weight: isSelected ? .semibold : .regular)) 
                 .foregroundColor(isSelected ? activeColor : inactiveColor)
         }
         .scaleEffect(isSelected ? 1.05 : 1.0)
