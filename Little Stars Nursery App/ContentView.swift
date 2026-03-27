@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selectedTab = "home"
-    
+    @State private var selectedTab  = "home"
+    @State private var showChat     = false    
+
     private let bgColor = Color(red: 0.97, green: 0.98, blue: 0.98)
-    
+
     var body: some View {
         ZStack(alignment: .bottom) {
-            
+
             bgColor.ignoresSafeArea()
 
             Group {
@@ -24,7 +25,7 @@ struct ContentView: View {
                 case "diary":
                     DiaryView()
                 case "chat":
-                    PlaceholderView(title: "Chat", icon: "bubble.left.fill")
+                    Color.clear
                 case "track":
                     TrackView()
                 case "menu":
@@ -39,13 +40,22 @@ struct ContentView: View {
                 .ignoresSafeArea(edges: .bottom)
         }
         .ignoresSafeArea(edges: .bottom)
+        .onChange(of: selectedTab) { tab in
+            if tab == "chat" {
+                showChat = true
+                selectedTab = "home"
+            }
+        }
+        .fullScreenCover(isPresented: $showChat) {
+            ChatView()
+        }
     }
 }
 
 struct PlaceholderView: View {
     var title: String
     var icon: String
-    
+
     var body: some View {
         VStack(spacing: 14) {
             Image(systemName: icon)
