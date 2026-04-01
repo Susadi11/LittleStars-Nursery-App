@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selectedTab  = "home"
-    @State private var showChat     = false    
+    @State private var selectedTab = "home"
+    @State private var showChat    = false
 
     private let bgColor = Color(red: 0.97, green: 0.98, blue: 0.98)
 
@@ -28,8 +28,8 @@ struct ContentView: View {
                     Color.clear
                 case "track":
                     TrackView()
-                case "menu":
-                    PlaceholderView(title: "Menu", icon: "line.3.horizontal")
+                case "profile":
+                    ProfileView()
                 default:
                     PlaceholderView(title: "Home", icon: "house.fill")
                 }

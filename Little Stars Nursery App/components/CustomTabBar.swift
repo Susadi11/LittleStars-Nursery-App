@@ -13,19 +13,19 @@ struct CustomTabBar: View {
     var body: some View {
         HStack {
             Spacer()
-            TabBarItem(icon: "house.fill",        title: "Home",  tab: "home",  selectedTab: $selectedTab)
+            TabBarItem(icon: "house.fill",        title: "Home",    tab: "home",    selectedTab: $selectedTab)
             Spacer()
-            TabBarItem(icon: "calendar",           title: "Diary", tab: "diary", selectedTab: $selectedTab)
+            TabBarItem(icon: "calendar",           title: "Diary",   tab: "diary",   selectedTab: $selectedTab)
             Spacer()
-            TabBarItem(icon: "bubble.left.fill",   title: "Chat",  tab: "chat",  selectedTab: $selectedTab)
+            TabBarItem(icon: "bubble.left.fill",   title: "Chat",    tab: "chat",    selectedTab: $selectedTab)
             Spacer()
-            TabBarItem(icon: "mappin.and.ellipse", title: "Track", tab: "track", selectedTab: $selectedTab)
+            TabBarItem(icon: "mappin.and.ellipse", title: "Track",   tab: "track",   selectedTab: $selectedTab)
             Spacer()
-            TabBarItem(icon: "line.3.horizontal",  title: "Menu",  tab: "menu",  selectedTab: $selectedTab)
+            TabBarItem(icon: "person.fill",        title: "Profile", tab: "profile", selectedTab: $selectedTab)
             Spacer()
         }
         .padding(.vertical, 8)
-        .padding(.top, 4)         
+        .padding(.top, 4)
         .background(Color.white)
         .clipShape(
             UnevenRoundedRectangle(
