@@ -8,67 +8,37 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selectedTab = "home"
-    @State private var showChat    = false
+    @State private var selectedTab = 0
 
-    private let bgColor = Color(red: 0.97, green: 0.98, blue: 0.98)
+    init() {
+        UITabBar.appearance().tintColor = UIColor(red: 0.11, green: 0.56, blue: 0.53, alpha: 1)
+        UITabBar.appearance().unselectedItemTintColor = UIColor(red: 0.55, green: 0.60, blue: 0.65, alpha: 1)
+        UITabBar.appearance().backgroundColor = .white
+    }
 
     var body: some View {
-        ZStack(alignment: .bottom) {
+        TabView(selection: $selectedTab) {
+            Text("")
+                .tabItem { Label("Home", systemImage: "house.fill") }
+                .tag(0)
 
-            bgColor.ignoresSafeArea()
+            DiaryView()
+                .tabItem { Label("Diary", systemImage: "calendar") }
+                .tag(1)
 
-            Group {
-                switch selectedTab {
-                case "home":
-                    PlaceholderView(title: "Home", icon: "house.fill")
-                case "diary":
-                    DiaryView()
-                case "chat":
-                    Color.clear
-                case "track":
-                    TrackView()
-                case "profile":
-                    ProfileView()
-                default:
-                    PlaceholderView(title: "Home", icon: "house.fill")
-                }
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            ChatView(selectedTab: $selectedTab)
+                .toolbar(.hidden, for: .tabBar)
+                .tabItem { Label("Chat", systemImage: "bubble.left.fill") }
+                .tag(2)
 
-            CustomTabBar(selectedTab: $selectedTab)
-                .ignoresSafeArea(edges: .bottom)
+            TrackView()
+                .tabItem { Label("Track", systemImage: "mappin.and.ellipse") }
+                .tag(3)
+
+            ProfileView()
+                .tabItem { Label("Profile", systemImage: "person.fill") }
+                .tag(4)
         }
-        .ignoresSafeArea(edges: .bottom)
-        .onChange(of: selectedTab) { tab in
-            if tab == "chat" {
-                showChat = true
-                selectedTab = "home"
-            }
-        }
-        .fullScreenCover(isPresented: $showChat) {
-            ChatView()
-        }
+        .accentColor(Color(red: 0.11, green: 0.56, blue: 0.53))
     }
-}
-
-struct PlaceholderView: View {
-    var title: String
-    var icon: String
-
-    var body: some View {
-        VStack(spacing: 14) {
-            Image(systemName: icon)
-                .font(.system(size: 52))
-                .foregroundColor(Color(red: 0.18, green: 0.77, blue: 0.71))
-            Text(title)
-                .font(.title2).fontWeight(.semibold)
-                .foregroundColor(Color(red: 0.11, green: 0.56, blue: 0.53))
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-    }
-}
-
-#Preview {
-    ContentView()
 }

@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct ChatView: View {
+    @Binding var selectedTab: Int
     private let bgColor = Color(red: 0.96, green: 0.97, blue: 0.97)
 
     @State private var messageText = ""
     @State private var messages    = sampleMessages
-    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         VStack(spacing: 0) {
 
-            ChatHeaderView(onBack: { dismiss() })
+            ChatHeaderView(onBack: { selectedTab = 0 })
 
             ScrollViewReader { proxy in
                 ScrollView(showsIndicators: false) {
@@ -331,5 +331,5 @@ struct ChatInputBar: View {
 }
 
 #Preview {
-    ChatView()
+    ChatView(selectedTab: .constant(2))
 }
