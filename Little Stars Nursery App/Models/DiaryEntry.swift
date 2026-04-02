@@ -60,7 +60,7 @@ let sampleDiaryEntries: [DiaryEntry] = [
         category: .mood,
         time: "08:30 AM",
         title: "ARRIVAL MOOD",
-        description: "Leo arrived with a big smile and was excited to see his friends in the sensory corner.",
+        description: "Nethan arrived with a big smile and was excited to see his friends in the sensory corner.",
         imageName: nil
     ),
     DiaryEntry(
@@ -74,7 +74,7 @@ let sampleDiaryEntries: [DiaryEntry] = [
         category: .play,
         time: "11:30 AM",
         title: "CREATIVE PLAY",
-        description: "Leo explored finger painting today. He was very focused on mixing blue and yellow to make green.",
+        description: "Nethan explored finger painting today. He was very focused on mixing blue and yellow to make green.",
         imageName: "image1"
     ),
     DiaryEntry(
@@ -102,14 +102,14 @@ let sampleDiaryEntries: [DiaryEntry] = [
         category: .outdoor,
         time: "03:30 PM",
         title: "OUTDOOR PLAY",
-        description: "Leo loved the sandbox today and made a castle with his best friend Mia. Great social interaction!",
+        description: "Nethan loved the sandbox today and made a castle with his best friend Eshini. Great social interaction!",
         imageName: "child_drawing"
     ),
     DiaryEntry(
         category: .pickup,
         time: "05:00 PM",
         title: "PICK-UP MOOD",
-        description: "Leo was in great spirits at pick-up, chatting about his painting and showing mum his green creation.",
+        description: "Nethan was in great spirits at pick-up, chatting about his painting and showing mum his green creation.",
         imageName: nil
     )
 ]

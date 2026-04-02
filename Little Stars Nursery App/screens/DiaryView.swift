@@ -20,7 +20,7 @@ struct DiaryView: View {
                     AppHeaderView()
 
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Leo's Diary")
+                        Text("Nethan's Diary")
                             .font(.system(size: 32, weight: .bold))
                             .foregroundColor(Color(red: 0.13, green: 0.13, blue: 0.18))
                         

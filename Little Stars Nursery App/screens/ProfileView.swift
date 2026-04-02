@@ -47,11 +47,11 @@ struct ProfileView: View {
                         }
                         .padding(.top, 20)
 
-                        Text("Sarah Mitchell")
+                        Text("Nathali Perera")
                             .font(.system(size: 22, weight: .bold))
                             .foregroundColor(Color(red: 0.10, green: 0.12, blue: 0.15))
 
-                        Text("Primary Guardian • Leo's Mom")
+                        Text("Primary Guardian • Nethan's Mom")
                             .font(.system(size: 13))
                             .foregroundColor(.gray)
 
@@ -81,7 +81,7 @@ struct ProfileView: View {
                         ) {
                             VStack(alignment: .leading, spacing: 5) {
                                 HStack(spacing: 8) {
-                                    Text("David Mitchell")
+                                    Text("Nadan Perera")
                                         .font(.system(size: 14, weight: .semibold))
                                         .foregroundColor(Color(red: 0.10, green: 0.12, blue: 0.15))
                                     Text("FATHER")
@@ -92,7 +92,7 @@ struct ProfileView: View {
                                         .background(Color(red: 0.91, green: 0.92, blue: 0.93))
                                         .cornerRadius(6)
                                 }
-                                Text("+44 7700 900123")
+                                Text("+94 7141 51567")
                                     .font(.system(size: 14))
                                     .foregroundColor(.gray)
                             }
@@ -158,7 +158,7 @@ struct ProfileView: View {
                                             .foregroundColor(secondaryColor)
                                     }
                                 }
-                                Text("3 people authorised to collect Leo.")
+                                Text("3 people authorised to collect Nethan.")
                                     .font(.system(size: 13))
                                     .foregroundColor(.gray)
                             }
@@ -178,7 +178,7 @@ struct ProfileView: View {
                         VStack(spacing: 0) {
                             ProfileSettingsRow(icon: "lock.fill", label: "Privacy & Security", isDestructive: false, showChevron: true)
                             Divider()
-                            ProfileSettingsRow(icon: "creditcard.fill", label: "Billing & Subscriptions", isDestructive: false, showChevron: true)
+                            ProfileSettingsRow(icon: "gear", label: "Settings", isDestructive: false, showChevron: true)
                             Divider()
                             ProfileSettingsRow(icon: "rectangle.portrait.and.arrow.right.fill", label: "Sign Out", isDestructive: true, showChevron: false)
                         }

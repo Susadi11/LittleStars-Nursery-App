@@ -173,7 +173,7 @@ struct TrackInfoCard: View {
                 InfoChip(
                     icon: "person.fill",
                     label: "STAFF",
-                    value: "Sarah J.",
+                    value: "Ayesha",
                     bg: chipBg,
                     iconColor: primaryColor
                 )

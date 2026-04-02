@@ -54,42 +54,42 @@ let sampleNotifications: [AppNotification] = [
     AppNotification(
         type: .incident,
         title: "Minor Incident Report",
-        message: "Leo had a small fall in the playground. He is fine and has been comforted by staff.",
+        message: "Nethan had a small fall in the playground. He is fine and has been comforted by staff.",
         time: "10:32 AM",
         isUnread: true
     ),
     AppNotification(
         type: .pickup,
         title: "Pick-Up Confirmed",
-        message: "David Mitchell has been authorised and collected Leo at 3:05 PM today.",
+        message: "Nadan Perera has been authorised and collected Nethan at 3:05 PM today.",
         time: "3:06 PM",
         isUnread: true
     ),
     AppNotification(
         type: .summary,
         title: "Daily Summary Ready",
-        message: "Leo's full activity diary for Thursday is now available to view.",
+        message: "Nethan's full activity diary for Thursday is now available to view.",
         time: "5:00 PM",
         isUnread: false
     ),
     AppNotification(
         type: .message,
-        title: "Message from Sarah J.",
-        message: "Leo had a wonderful day today! He loved the finger painting session.",
+        title: "Message from Ayesha",
+        message: "Nethan had a wonderful day today! He loved the finger painting session.",
         time: "2:45 PM",
         isUnread: false
     ),
     AppNotification(
         type: .summary,
         title: "Weekly Report",
-        message: "Your weekly nursery summary for Leo is ready. Tap to review.",
+        message: "Your weekly nursery summary for Nethan is ready. Tap to review.",
         time: "Yesterday",
         isUnread: false
     ),
     AppNotification(
         type: .pickup,
         title: "Arrival Confirmed",
-        message: "Leo arrived safely at nursery and has been signed in by Sarah J.",
+        message: "Nethan arrived safely at nursery and has been signed in by Ayesha",
         time: "08:31 AM",
         isUnread: false
     ),
@@ -103,21 +103,21 @@ let sampleNotifications: [AppNotification] = [
     AppNotification(
         type: .incident,
         title: "Allergy Alert",
-        message: "Please note that a nut product was brought in today. Leo was kept safe per his care plan.",
+        message: "Please note that a nut product was brought in today. Nethan was kept safe per his care plan.",
         time: "Mon",
         isUnread: false
     ),
     AppNotification(
         type: .summary,
         title: "Monthly Progress Report",
-        message: "Leo's monthly development summary is now available. Great progress this month!",
+        message: "Nethan's monthly development summary is now available. Great progress this month!",
         time: "Mon",
         isUnread: false
     ),
     AppNotification(
         type: .message,
         title: "Message from Ms. Olivia",
-        message: "Leo made a new friend today — he and Jamie built a sandcastle together!",
+        message: "Nethan made a new friend today — he and Jamie built a sandcastle together!",
         time: "Sun",
         isUnread: false
     ),

@@ -128,7 +128,7 @@ struct ChatHeaderView: View {
             }
 
             VStack(alignment: .leading, spacing: 2) {
-                Text("Sarah J.")
+                Text("Ayesha")
                     .font(.system(size: 16, weight: .bold))
                     .foregroundColor(Color(red: 0.10, green: 0.12, blue: 0.15))
 
@@ -281,7 +281,7 @@ struct TypingIndicator: View {
             .shadow(color: .black.opacity(0.05), radius: 3, x: 0, y: 1)
             .onAppear { animate = true }
 
-            Text("Sarah J. is typing...")
+            Text("Ayesha is typing...")
                 .font(.system(size: 12))
                 .foregroundColor(Color(red: 0.55, green: 0.60, blue: 0.65))
         }
