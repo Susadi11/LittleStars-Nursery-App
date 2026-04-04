@@ -18,7 +18,7 @@ struct ContentView: View {
 
     var body: some View {
         TabView(selection: $selectedTab) {
-            Text("")
+            HomeView()
                 .tabItem { Label("Home", systemImage: "house.fill") }
                 .tag(0)
 
@@ -26,8 +26,7 @@ struct ContentView: View {
                 .tabItem { Label("Diary", systemImage: "calendar") }
                 .tag(1)
 
-            ChatView(selectedTab: $selectedTab)
-                .toolbar(.hidden, for: .tabBar)
+            ChatView()
                 .tabItem { Label("Chat", systemImage: "bubble.left.fill") }
                 .tag(2)
 
