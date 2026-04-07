@@ -121,7 +121,7 @@ struct TypingIndicator: View {
 
 #Preview {
     ChatConversationView(person: MessagesStructure(
-        name: "Sarah (Teacher)",
+        name: "Ayesha (Teacher)",
         timestamp: "9:00 AM",
         messageSummary: "Liam had a great morning at nursery today!",
         isUnread: true,

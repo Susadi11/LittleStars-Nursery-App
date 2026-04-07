@@ -74,9 +74,7 @@ struct AppHeaderView: View {
             .padding(.bottom, 10)
             .background(bgColor)
         }
-        .fullScreenCover(isPresented: $showNotifications) {
-            NotificationsView(isPresented: $showNotifications)
-        }
+
     }
 }
 
