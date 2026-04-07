@@ -8,7 +8,6 @@ import SwiftUI
 
 struct ChatBubble: View {
     let message: ChatMessage
-    private let primaryColor   = Color(red: 0.18, green: 0.77, blue: 0.71)
 
     var body: some View {
         VStack(alignment: message.isFromMe ? .trailing : .leading, spacing: 2) {
@@ -28,13 +27,13 @@ struct ChatBubble: View {
                                 .shadow(color: .black.opacity(0.08), radius: 4, x: 0, y: 2)
                         } else {
                             RoundedRectangle(cornerRadius: 16)
-                                .fill(primaryColor.opacity(0.15))
+                                .fill(Color.Theme.primary.opacity(0.15))
                                 .frame(width: 200, height: 180)
                                 .overlay(
                                     VStack(spacing: 6) {
                                         Image(systemName: "photo")
                                             .font(.system(size: 28))
-                                            .foregroundColor(primaryColor)
+                                            .foregroundColor(Color.Theme.primary)
                                         Text(imgName)
                                             .font(.system(size: 12))
                                             .foregroundColor(.gray)
@@ -48,14 +47,14 @@ struct ChatBubble: View {
                             .font(.system(size: 15))
                             .foregroundColor(
                                 message.isFromMe
-                                ? Color(red: 0.10, green: 0.30, blue: 0.28)
-                                : Color(red: 0.13, green: 0.15, blue: 0.18)
+                                ? Color.Theme.secondary
+                                : Color.Theme.labelPrimary
                             )
                             .padding(.horizontal, 14)
                             .padding(.vertical, 11)
                             .background(
                                 message.isFromMe
-                                ? primaryColor.opacity(0.25)
+                                ? Color.Theme.primary.opacity(0.25)
                                 : Color.white
                             )
                             .cornerRadius(18)
@@ -69,11 +68,11 @@ struct ChatBubble: View {
             HStack(spacing: 3) {
                 Text(message.time)
                     .font(.system(size: 10))
-                    .foregroundColor(Color(red: 0.55, green: 0.60, blue: 0.65))
+                    .foregroundColor(Color.Theme.labelCaption)
                 if message.isFromMe {
                     Image(systemName: "checkmark.circle.fill")
                         .font(.system(size: 10))
-                        .foregroundColor(primaryColor)
+                        .foregroundColor(Color.Theme.primary)
                 }
             }
             .padding(.horizontal, 4)

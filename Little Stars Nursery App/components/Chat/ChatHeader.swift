@@ -8,8 +8,6 @@ import SwiftUI
 
 struct ChatHeader: View {
     var onBack: () -> Void
-    private let primaryColor   = Color(red: 0.18, green: 0.77, blue: 0.71)
-    private let secondaryColor = Color(red: 0.11, green: 0.56, blue: 0.53)
 
     var body: some View {
         HStack(spacing: 12) {
@@ -17,11 +15,11 @@ struct ChatHeader: View {
             Button(action: onBack) {
                 ZStack {
                     Circle()
-                        .fill(Color(red: 0.93, green: 0.97, blue: 0.97))
+                        .fill(Color.Theme.primary.opacity(0.12))
                         .frame(width: 38, height: 38)
                     Image(systemName: "chevron.left")
                         .font(.system(size: 15, weight: .semibold))
-                        .foregroundColor(secondaryColor)
+                        .foregroundColor(Color.Theme.secondary)
                 }
             }
 
@@ -36,7 +34,7 @@ struct ChatHeader: View {
                 } else {
                     ZStack {
                         Circle()
-                            .fill(primaryColor.opacity(0.18))
+                            .fill(Color.Theme.primary.opacity(0.18))
                             .frame(width: 46, height: 46)
                         Text("👩‍🏫")
                             .font(.system(size: 26))
@@ -44,7 +42,7 @@ struct ChatHeader: View {
                 }
 
                 Circle()
-                    .fill(Color(red: 0.20, green: 0.78, blue: 0.35))
+                    .fill(Color.green)
                     .frame(width: 11, height: 11)
                     .overlay(Circle().stroke(Color.white, lineWidth: 2))
             }
@@ -52,19 +50,19 @@ struct ChatHeader: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text("Ayesha")
                     .font(.system(size: 16, weight: .bold))
-                    .foregroundColor(Color(red: 0.10, green: 0.12, blue: 0.15))
+                    .foregroundColor(Color.Theme.labelPrimary)
 
                 HStack(spacing: 4) {
                     Text("KEYWORKER")
                         .font(.system(size: 11, weight: .bold))
-                        .foregroundColor(secondaryColor)
+                        .foregroundColor(Color.Theme.secondary)
                         .kerning(0.6)
                     Text("•")
                         .font(.system(size: 11))
-                        .foregroundColor(Color(red: 0.20, green: 0.78, blue: 0.35))
+                        .foregroundColor(.green)
                     Text("ONLINE")
                         .font(.system(size: 11, weight: .bold))
-                        .foregroundColor(Color(red: 0.20, green: 0.78, blue: 0.35))
+                        .foregroundColor(.green)
                         .kerning(0.6)
                 }
             }
@@ -85,16 +83,15 @@ struct ChatHeader: View {
 
 struct HeaderActionButton: View {
     let icon: String
-    private let secondaryColor = Color(red: 0.11, green: 0.56, blue: 0.53)
 
     var body: some View {
         ZStack {
             Circle()
-                .fill(Color(red: 0.93, green: 0.97, blue: 0.97))
+                .fill(Color.Theme.primary.opacity(0.12))
                 .frame(width: 38, height: 38)
             Image(systemName: icon)
                 .font(.system(size: 15))
-                .foregroundColor(secondaryColor)
+                .foregroundColor(Color.Theme.secondary)
         }
     }
 }

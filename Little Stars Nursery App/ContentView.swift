@@ -11,8 +11,8 @@ struct ContentView: View {
     @State private var selectedTab = 0
 
     init() {
-        UITabBar.appearance().tintColor = UIColor(red: 0.11, green: 0.56, blue: 0.53, alpha: 1)
-        UITabBar.appearance().unselectedItemTintColor = UIColor(red: 0.55, green: 0.60, blue: 0.65, alpha: 1)
+        UITabBar.appearance().tintColor = UIColor(Color.Theme.secondary)
+        UITabBar.appearance().unselectedItemTintColor = UIColor(Color.Theme.labelCaption)
         UITabBar.appearance().backgroundColor = .white
     }
 
@@ -38,6 +38,6 @@ struct ContentView: View {
                 .tabItem { Label("Profile", systemImage: "person.fill") }
                 .tag(4)
         }
-        .accentColor(Color(red: 0.11, green: 0.56, blue: 0.53))
+        .accentColor(Color.Theme.secondary)
     }
 }

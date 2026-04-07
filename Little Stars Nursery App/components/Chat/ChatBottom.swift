@@ -9,30 +9,29 @@ import SwiftUI
 struct ChatBottom: View {
     @Binding var messageText: String
     var onSend: () -> Void
-    private let secondaryColor = Color(red: 0.11, green: 0.56, blue: 0.53)
 
     var body: some View {
         HStack(spacing: 10) {
             ZStack {
                 Circle()
-                    .fill(Color(red: 0.90, green: 0.92, blue: 0.93))
+                    .fill(Color.Theme.iconBg)
                     .frame(width: 42, height: 42)
                 Image(systemName: "plus")
                     .font(.system(size: 18, weight: .medium))
-                    .foregroundColor(Color(red: 0.45, green: 0.50, blue: 0.55))
+                    .foregroundColor(Color.Theme.labelAsh)
             }
 
             TextField("Type a message...", text: $messageText)
                 .font(.system(size: 15))
                 .padding(.horizontal, 16)
                 .padding(.vertical, 11)
-                .background(Color(red: 0.92, green: 0.94, blue: 0.95))
+                .background(Color.Theme.tagBg)
                 .cornerRadius(24)
 
             Button(action: onSend) {
                 ZStack {
                     Circle()
-                        .fill(secondaryColor)
+                        .fill(Color.Theme.secondary)
                         .frame(width: 44, height: 44)
                     Image(systemName: "paperplane.fill")
                         .font(.system(size: 16))

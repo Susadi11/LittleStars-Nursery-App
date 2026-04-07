@@ -8,22 +8,20 @@
 import SwiftUI
 
 struct DiaryView: View {
-    private let bgColor = Color(red: 0.97, green: 0.98, blue: 0.98)
-    
     var body: some View {
         ZStack(alignment: .top) {
-            bgColor.ignoresSafeArea()
-            
+            Color.Theme.background.ignoresSafeArea()
+
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 0) {
-                    
+
                     AppHeaderView()
 
                     VStack(alignment: .leading, spacing: 4) {
                         Text("Nethan's Diary")
                             .font(.system(size: 32, weight: .bold))
-                            .foregroundColor(Color(red: 0.13, green: 0.13, blue: 0.18))
-                        
+                            .foregroundColor(Color.Theme.labelPrimary)
+
                         Text("THURSDAY, OCTOBER 24")
                             .font(.system(size: 13, weight: .semibold))
                             .foregroundColor(.gray)
@@ -32,7 +30,7 @@ struct DiaryView: View {
                     .padding(.horizontal, 24)
                     .padding(.top, 20)
                     .padding(.bottom, 28)
-                    
+
                     VStack(spacing: 0) {
                         ForEach(Array(sampleDiaryEntries.enumerated()), id: \.element.id) { index, entry in
                             DiaryTimelineRow(
@@ -42,7 +40,7 @@ struct DiaryView: View {
                         }
                     }
                     .padding(.horizontal, 16)
-                    
+
                     Spacer().frame(height: 110)
                 }
             }
@@ -53,7 +51,7 @@ struct DiaryView: View {
 struct DiaryTimelineRow: View {
     let entry: DiaryEntry
     let isLast: Bool
-    
+
     var body: some View {
         HStack(alignment: .top, spacing: 0) {
 
@@ -68,7 +66,7 @@ struct DiaryTimelineRow: View {
                 }
                 if !isLast {
                     Rectangle()
-                        .fill(Color(red: 0.68, green: 0.90, blue: 0.88))
+                        .fill(Color.Theme.diaryLine)
                         .frame(width: 2)
                         .frame(minHeight: 40)
                 }
@@ -84,15 +82,14 @@ struct DiaryTimelineRow: View {
 
 struct DiaryEntryCard: View {
     let entry: DiaryEntry
-    private let secondaryColor = Color(red: 0.11, green: 0.56, blue: 0.53)
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
 
             HStack {
                 Text(entry.title)
                     .font(.system(size: 12, weight: .bold))
-                    .foregroundColor(secondaryColor)
+                    .foregroundColor(Color.Theme.secondary)
                     .kerning(0.8)
                 Spacer()
                 Text(entry.time)
@@ -102,7 +99,7 @@ struct DiaryEntryCard: View {
 
             Text(entry.description)
                 .font(.system(size: 15))
-                .foregroundColor(Color(red: 0.20, green: 0.22, blue: 0.25))
+                .foregroundColor(Color.Theme.labelBody)
                 .lineSpacing(4)
                 .fixedSize(horizontal: false, vertical: true)
 

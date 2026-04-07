@@ -25,7 +25,7 @@ enum DiaryCategory: String {
     case nappy   = "Nappy Log"
     case outdoor = "Outdoor Play"
     case pickup  = "Pick-Up Mood"
-    
+
     var icon: String {
         switch self {
         case .mood:    return "face.smiling.fill"
@@ -38,19 +38,17 @@ enum DiaryCategory: String {
         case .pickup:  return "figure.wave"
         }
     }
-    
+
     var color: Color {
-        let p = Color(red: 0.18, green: 0.77, blue: 0.71)
-        let s = Color(red: 0.11, green: 0.56, blue: 0.53)
         switch self {
-        case .mood:    return p
-        case .snack:   return p.opacity(0.75)
-        case .play:    return s
-        case .nap:     return Color(red: 0.66, green: 0.86, blue: 0.88)
-        case .lunch:   return p
-        case .nappy:   return Color(red: 0.40, green: 0.75, blue: 0.80)
-        case .outdoor: return s.opacity(0.75)
-        case .pickup:  return p.opacity(0.65)
+        case .mood:    return Color.Theme.primary
+        case .snack:   return Color.Theme.primary.opacity(0.75)
+        case .play:    return Color.Theme.secondary
+        case .nap:     return Color.Theme.diaryNap
+        case .lunch:   return Color.Theme.primary
+        case .nappy:   return Color.Theme.diaryNappy
+        case .outdoor: return Color.Theme.secondary.opacity(0.75)
+        case .pickup:  return Color.Theme.primary.opacity(0.65)
         }
     }
 }

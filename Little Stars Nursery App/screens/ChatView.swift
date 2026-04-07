@@ -4,7 +4,6 @@
 //
 //  Created by Susadi on 2026-03-28.
 //
-//
 import SwiftUI
 
 struct MessagesStructure: Identifiable {
@@ -18,9 +17,6 @@ struct MessagesStructure: Identifiable {
 }
 
 struct ChatView: View {
-    private let bgColor = Color(red: 0.97, green: 0.98, blue: 0.98)
-    private let teal    = Color(red: 0.18, green: 0.70, blue: 0.65)
-
     let messages: [MessagesStructure] = [
         MessagesStructure(
             name: "Ayesha (KeyWorker)",
@@ -43,10 +39,9 @@ struct ChatView: View {
     var body: some View {
         NavigationStack {
             ZStack(alignment: .top) {
-                bgColor.ignoresSafeArea()
+                Color.Theme.background.ignoresSafeArea()
 
                 VStack(spacing: 0) {
-
                     AppHeaderView()
 
                     ScrollView(showsIndicators: false) {
@@ -55,7 +50,6 @@ struct ChatView: View {
                                 NavigationLink(destination: ChatConversationView(person: item)) {
                                     VStack(spacing: 0) {
                                         HStack(alignment: .center, spacing: 12) {
-
                                             Image(item.avatar)
                                                 .resizable()
                                                 .scaledToFill()
@@ -78,12 +72,12 @@ struct ChatView: View {
                                             VStack(alignment: .trailing, spacing: 5) {
                                                 Text(item.timestamp)
                                                     .font(.system(size: 12))
-                                                    .foregroundColor(item.isUnread ? teal : .gray)
+                                                    .foregroundColor(item.isUnread ? Color.Theme.primary : .gray)
 
                                                 if item.unreadCount > 0 {
                                                     ZStack {
                                                         Circle()
-                                                            .fill(teal)
+                                                            .fill(Color.Theme.primary)
                                                             .frame(width: 20, height: 20)
                                                         Text("\(item.unreadCount)")
                                                             .font(.system(size: 11, weight: .bold))

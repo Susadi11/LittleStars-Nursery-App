@@ -7,13 +7,9 @@
 import SwiftUI
 
 struct ProfileView: View {
-    private let bgColor        = Color(red: 0.97, green: 0.98, blue: 0.98)
-    private let primaryColor   = Color(red: 0.18, green: 0.77, blue: 0.71)
-    private let secondaryColor = Color(red: 0.11, green: 0.56, blue: 0.53)
-
     var body: some View {
         ZStack(alignment: .top) {
-            bgColor.ignoresSafeArea()
+            Color.Theme.background.ignoresSafeArea()
 
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 0) {
@@ -31,12 +27,12 @@ struct ProfileView: View {
                                     .shadow(color: .black.opacity(0.12), radius: 8, x: 0, y: 3)
                             } else {
                                 RoundedRectangle(cornerRadius: 24)
-                                    .fill(primaryColor.opacity(0.15))
+                                    .fill(Color.Theme.primary.opacity(0.15))
                                     .frame(width: 90, height: 90)
                             }
                             ZStack {
                                 Circle()
-                                    .fill(secondaryColor)
+                                    .fill(Color.Theme.secondary)
                                     .frame(width: 24, height: 24)
                                     .overlay(Circle().stroke(Color.white, lineWidth: 2))
                                 Image(systemName: "pencil")
@@ -49,7 +45,7 @@ struct ProfileView: View {
 
                         Text("Nathali Perera")
                             .font(.system(size: 22, weight: .bold))
-                            .foregroundColor(Color(red: 0.10, green: 0.12, blue: 0.15))
+                            .foregroundColor(Color.Theme.labelPrimary)
 
                         Text("Primary Guardian • Nethan's Mom")
                             .font(.system(size: 13))
@@ -57,15 +53,15 @@ struct ProfileView: View {
 
                         HStack(spacing: 5) {
                             Circle()
-                                .fill(primaryColor)
+                                .fill(Color.Theme.primary)
                                 .frame(width: 6, height: 6)
                             Text("Verified Account")
                                 .font(.system(size: 12, weight: .semibold))
-                                .foregroundColor(secondaryColor)
+                                .foregroundColor(Color.Theme.secondary)
                         }
                         .padding(.horizontal, 12)
                         .padding(.vertical, 5)
-                        .background(primaryColor.opacity(0.10))
+                        .background(Color.Theme.primary.opacity(0.10))
                         .cornerRadius(20)
                     }
                     .frame(maxWidth: .infinity)
@@ -75,21 +71,21 @@ struct ProfileView: View {
 
                         ProfileInfoCard(
                             iconName: "staroflife.fill",
-                            iconColor: Color(red: 0.85, green: 0.20, blue: 0.20),
-                            iconBg: Color(red: 0.98, green: 0.93, blue: 0.93),
+                            iconColor: Color.Theme.destructive,
+                            iconBg: Color.Theme.destructiveBg,
                             title: "Emergency Contacts"
                         ) {
                             VStack(alignment: .leading, spacing: 5) {
                                 HStack(spacing: 8) {
                                     Text("Nadan Perera")
                                         .font(.system(size: 14, weight: .semibold))
-                                        .foregroundColor(Color(red: 0.10, green: 0.12, blue: 0.15))
+                                        .foregroundColor(Color.Theme.labelPrimary)
                                     Text("FATHER")
                                         .font(.system(size: 10, weight: .bold))
-                                        .foregroundColor(Color(red: 0.50, green: 0.54, blue: 0.58))
+                                        .foregroundColor(Color.Theme.labelSubtitle)
                                         .padding(.horizontal, 7)
                                         .padding(.vertical, 3)
-                                        .background(Color(red: 0.91, green: 0.92, blue: 0.93))
+                                        .background(Color.Theme.iconBg)
                                         .cornerRadius(6)
                                 }
                                 Text("+94 7141 51567")
@@ -100,8 +96,8 @@ struct ProfileView: View {
 
                         ProfileInfoCard(
                             iconName: "cross.case.fill",
-                            iconColor: primaryColor,
-                            iconBg: primaryColor.opacity(0.12),
+                            iconColor: Color.Theme.primary,
+                            iconBg: Color.Theme.primary.opacity(0.12),
                             title: "Medical Information"
                         ) {
                             VStack(alignment: .leading, spacing: 6) {
@@ -112,8 +108,8 @@ struct ProfileView: View {
 
                         ProfileInfoCard(
                             iconName: "fork.knife",
-                            iconColor: primaryColor,
-                            iconBg: primaryColor.opacity(0.12),
+                            iconColor: Color.Theme.primary,
+                            iconBg: Color.Theme.primary.opacity(0.12),
                             title: "Dietary Preferences"
                         ) {
                             HStack(spacing: 8) {
@@ -125,8 +121,8 @@ struct ProfileView: View {
 
                         ProfileInfoCard(
                             iconName: "person.2.fill",
-                            iconColor: primaryColor,
-                            iconBg: primaryColor.opacity(0.12),
+                            iconColor: Color.Theme.primary,
+                            iconBg: Color.Theme.primary.opacity(0.12),
                             title: "Collection Auth"
                         ) {
                             VStack(alignment: .leading, spacing: 6) {
@@ -142,7 +138,7 @@ struct ProfileView: View {
                                                     .overlay(Circle().stroke(Color.white, lineWidth: 2))
                                             } else {
                                                 Circle()
-                                                    .fill(primaryColor.opacity(0.22))
+                                                    .fill(Color.Theme.primary.opacity(0.22))
                                                     .frame(width: 34, height: 34)
                                                     .overlay(Circle().stroke(Color.white, lineWidth: 2))
                                             }
@@ -150,12 +146,12 @@ struct ProfileView: View {
                                     }
                                     ZStack {
                                         Circle()
-                                            .fill(primaryColor.opacity(0.18))
+                                            .fill(Color.Theme.primary.opacity(0.18))
                                             .frame(width: 34, height: 34)
                                             .overlay(Circle().stroke(Color.white, lineWidth: 2))
                                         Text("+1")
                                             .font(.system(size: 11, weight: .bold))
-                                            .foregroundColor(secondaryColor)
+                                            .foregroundColor(Color.Theme.secondary)
                                     }
                                 }
                                 Text("3 people authorised to collect Nethan.")
@@ -169,7 +165,7 @@ struct ProfileView: View {
                     VStack(alignment: .leading, spacing: 0) {
                         Text("ACCOUNT SETTINGS")
                             .font(.system(size: 11, weight: .bold))
-                            .foregroundColor(Color(red: 0.55, green: 0.60, blue: 0.65))
+                            .foregroundColor(Color.Theme.labelCaption)
                             .kerning(1.2)
                             .padding(.horizontal, 16)
                             .padding(.top, 28)
@@ -202,8 +198,6 @@ struct ProfileInfoCard<Content: View>: View {
     let title: String
     let content: () -> Content
 
-    private let secondaryColor = Color(red: 0.11, green: 0.56, blue: 0.53)
-
     init(iconName: String, iconColor: Color, iconBg: Color, title: String, @ViewBuilder content: @escaping () -> Content) {
         self.iconName  = iconName
         self.iconColor = iconColor
@@ -227,12 +221,12 @@ struct ProfileInfoCard<Content: View>: View {
                 Button(action: {}) {
                     Text("Edit")
                         .font(.system(size: 13, weight: .semibold))
-                        .foregroundColor(secondaryColor)
+                        .foregroundColor(Color.Theme.secondary)
                 }
             }
             Text(title)
                 .font(.system(size: 15, weight: .bold))
-                .foregroundColor(Color(red: 0.10, green: 0.12, blue: 0.15))
+                .foregroundColor(Color.Theme.labelPrimary)
             content()
         }
         .padding(16)
@@ -244,16 +238,15 @@ struct ProfileInfoCard<Content: View>: View {
 
 struct ProfileBullet: View {
     let text: String
-    private let primaryColor = Color(red: 0.18, green: 0.77, blue: 0.71)
 
     var body: some View {
         HStack(spacing: 8) {
             Circle()
-                .fill(primaryColor)
+                .fill(Color.Theme.primary)
                 .frame(width: 6, height: 6)
             Text(text)
                 .font(.system(size: 14))
-                .foregroundColor(Color(red: 0.20, green: 0.22, blue: 0.25))
+                .foregroundColor(Color.Theme.labelBody)
         }
     }
 }
@@ -264,10 +257,10 @@ struct ProfileTag: View {
     var body: some View {
         Text(label)
             .font(.system(size: 12, weight: .medium))
-            .foregroundColor(Color(red: 0.25, green: 0.28, blue: 0.30))
+            .foregroundColor(Color.Theme.tagText)
             .padding(.horizontal, 11)
             .padding(.vertical, 6)
-            .background(Color(red: 0.91, green: 0.93, blue: 0.93))
+            .background(Color.Theme.tagBg)
             .cornerRadius(20)
     }
 }
@@ -278,23 +271,20 @@ struct ProfileSettingsRow: View {
     var isDestructive: Bool = false
     var showChevron: Bool = true
 
-    private let ashColor = Color(red: 0.45, green: 0.48, blue: 0.52)
-    private let redColor = Color(red: 0.85, green: 0.18, blue: 0.18)
-
     var body: some View {
         HStack(spacing: 16) {
             Image(systemName: icon)
                 .font(.system(size: 17))
-                .foregroundColor(isDestructive ? redColor : ashColor)
+                .foregroundColor(isDestructive ? Color.Theme.destructive : Color.Theme.labelAsh)
                 .frame(width: 22)
             Text(label)
                 .font(.system(size: 15, weight: .medium))
-                .foregroundColor(isDestructive ? redColor : Color(red: 0.10, green: 0.12, blue: 0.15))
+                .foregroundColor(isDestructive ? Color.Theme.destructive : Color.Theme.labelPrimary)
             Spacer()
             if showChevron {
                 Image(systemName: "chevron.right")
                     .font(.system(size: 13))
-                    .foregroundColor(Color(red: 0.75, green: 0.77, blue: 0.80))
+                    .foregroundColor(Color.Theme.labelChevron)
             }
         }
         .padding(.horizontal, 20)
