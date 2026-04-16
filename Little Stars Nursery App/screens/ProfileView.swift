@@ -51,18 +51,6 @@ struct ProfileView: View {
                             .font(.system(size: 13))
                             .foregroundColor(.gray)
 
-                        HStack(spacing: 5) {
-                            Circle()
-                                .fill(Color.Theme.primary)
-                                .frame(width: 6, height: 6)
-                            Text("Verified Account")
-                                .font(.system(size: 12, weight: .semibold))
-                                .foregroundColor(Color.Theme.secondary)
-                        }
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 5)
-                        .background(Color.Theme.primary.opacity(0.10))
-                        .cornerRadius(20)
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.bottom, 24)
@@ -70,9 +58,6 @@ struct ProfileView: View {
                     VStack(spacing: 12) {
 
                         ProfileInfoCard(
-                            iconName: "staroflife.fill",
-                            iconColor: Color.Theme.destructive,
-                            iconBg: Color.Theme.destructiveBg,
                             title: "Emergency Contacts"
                         ) {
                             VStack(alignment: .leading, spacing: 5) {
@@ -95,9 +80,6 @@ struct ProfileView: View {
                         }
 
                         ProfileInfoCard(
-                            iconName: "cross.case.fill",
-                            iconColor: Color.Theme.primary,
-                            iconBg: Color.Theme.primary.opacity(0.12),
                             title: "Medical Information"
                         ) {
                             VStack(alignment: .leading, spacing: 6) {
@@ -107,9 +89,6 @@ struct ProfileView: View {
                         }
 
                         ProfileInfoCard(
-                            iconName: "fork.knife",
-                            iconColor: Color.Theme.primary,
-                            iconBg: Color.Theme.primary.opacity(0.12),
                             title: "Dietary Preferences"
                         ) {
                             HStack(spacing: 8) {
@@ -119,46 +98,6 @@ struct ProfileView: View {
                             }
                         }
 
-                        ProfileInfoCard(
-                            iconName: "person.2.fill",
-                            iconColor: Color.Theme.primary,
-                            iconBg: Color.Theme.primary.opacity(0.12),
-                            title: "Collection Auth"
-                        ) {
-                            VStack(alignment: .leading, spacing: 6) {
-                                HStack(spacing: -10) {
-                                    ForEach(["grand_mom", "grand_father"], id: \.self) { name in
-                                        Group {
-                                            if UIImage(named: name) != nil {
-                                                Image(name)
-                                                    .resizable()
-                                                    .scaledToFill()
-                                                    .frame(width: 34, height: 34)
-                                                    .clipShape(Circle())
-                                                    .overlay(Circle().stroke(Color.white, lineWidth: 2))
-                                            } else {
-                                                Circle()
-                                                    .fill(Color.Theme.primary.opacity(0.22))
-                                                    .frame(width: 34, height: 34)
-                                                    .overlay(Circle().stroke(Color.white, lineWidth: 2))
-                                            }
-                                        }
-                                    }
-                                    ZStack {
-                                        Circle()
-                                            .fill(Color.Theme.primary.opacity(0.18))
-                                            .frame(width: 34, height: 34)
-                                            .overlay(Circle().stroke(Color.white, lineWidth: 2))
-                                        Text("+1")
-                                            .font(.system(size: 11, weight: .bold))
-                                            .foregroundColor(Color.Theme.secondary)
-                                    }
-                                }
-                                Text("3 people authorised to collect Nethan.")
-                                    .font(.system(size: 13))
-                                    .foregroundColor(.gray)
-                            }
-                        }
                     }
                     .padding(.horizontal, 16)
 
@@ -192,13 +131,13 @@ struct ProfileView: View {
 }
 
 struct ProfileInfoCard<Content: View>: View {
-    let iconName: String
+    let iconName: String?
     let iconColor: Color
     let iconBg: Color
     let title: String
     let content: () -> Content
 
-    init(iconName: String, iconColor: Color, iconBg: Color, title: String, @ViewBuilder content: @escaping () -> Content) {
+    init(iconName: String? = nil, iconColor: Color = .clear, iconBg: Color = .clear, title: String, @ViewBuilder content: @escaping () -> Content) {
         self.iconName  = iconName
         self.iconColor = iconColor
         self.iconBg    = iconBg
@@ -209,13 +148,15 @@ struct ProfileInfoCard<Content: View>: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 12)
-                        .fill(iconBg)
-                        .frame(width: 40, height: 40)
-                    Image(systemName: iconName)
-                        .font(.system(size: 17))
-                        .foregroundColor(iconColor)
+                if let name = iconName {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(iconBg)
+                            .frame(width: 40, height: 40)
+                        Image(systemName: name)
+                            .font(.system(size: 17))
+                            .foregroundColor(iconColor)
+                    }
                 }
                 Spacer()
                 Button(action: {}) {

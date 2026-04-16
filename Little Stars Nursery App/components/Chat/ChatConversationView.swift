@@ -29,14 +29,7 @@ struct ChatConversationView: View {
                                 ChatBubble(message: msg)
                                     .id(msg.id)
                             }
-
-                            HStack(alignment: .center, spacing: 6) {
-                                TypingIndicator()
-                                Spacer()
-                            }
-                            .padding(.leading, 14)
-                            .padding(.top, 6)
-                            .id("bottom")
+                            Color.clear.frame(height: 1).id("bottom")
                         }
                         .padding(.horizontal, 14)
                         .padding(.bottom, 16)
@@ -82,38 +75,6 @@ struct DateSeparator: View {
     }
 }
 
-struct TypingIndicator: View {
-    @State private var animate = false
-
-    var body: some View {
-        HStack(spacing: 6) {
-            HStack(spacing: 4) {
-                ForEach(0..<3, id: \.self) { i in
-                    Circle()
-                        .fill(Color.Theme.primary.opacity(0.6))
-                        .frame(width: 7, height: 7)
-                        .offset(y: animate ? -4 : 0)
-                        .animation(
-                            .easeInOut(duration: 0.5)
-                            .repeatForever()
-                            .delay(Double(i) * 0.15),
-                            value: animate
-                        )
-                }
-            }
-            .padding(.horizontal, 14)
-            .padding(.vertical, 10)
-            .background(Color.white)
-            .cornerRadius(16)
-            .shadow(color: .black.opacity(0.05), radius: 3, x: 0, y: 1)
-            .onAppear { animate = true }
-
-            Text("Ayesha is typing...")
-                .font(.system(size: 12))
-                .foregroundColor(Color.Theme.labelCaption)
-        }
-    }
-}
 
 #Preview {
     ChatConversationView(person: MessagesStructure(
