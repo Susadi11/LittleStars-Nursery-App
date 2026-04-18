@@ -7,14 +7,15 @@
 
 import Foundation
 
-struct ChatMessage: Identifiable {
-    let id = UUID()
+struct ChatMessage: Identifiable, Codable {
+    let id: UUID
     let text: String
     let time: String
     let isFromMe: Bool
     let imageName: String?
 
     init(text: String, time: String, isFromMe: Bool, imageName: String? = nil) {
+        self.id = UUID()
         self.text = text
         self.time = time
         self.isFromMe = isFromMe

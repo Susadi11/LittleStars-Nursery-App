@@ -10,6 +10,9 @@ struct ChatBottom: View {
     @Binding var messageText: String
     var onSend: () -> Void
 
+    @State private var sendScale: CGFloat = 1.0
+    private var canSend: Bool { !messageText.trimmingCharacters(in: .whitespaces).isEmpty }
+
     var body: some View {
         HStack(spacing: 10) {
             ZStack {
@@ -28,17 +31,30 @@ struct ChatBottom: View {
                 .background(Color.Theme.tagBg)
                 .cornerRadius(24)
 
-            Button(action: onSend) {
+            Button(action: {
+                guard canSend else { return }
+                withAnimation(.spring(response: 0.25, dampingFraction: 0.5)) {
+                    sendScale = 0.82
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.12) {
+                    withAnimation(.spring(response: 0.25, dampingFraction: 0.5)) {
+                        sendScale = 1.0
+                    }
+                }
+                onSend()
+            }) {
                 ZStack {
                     Circle()
-                        .fill(Color.Theme.secondary)
+                        .fill(canSend ? Color.Theme.secondary : Color.Theme.labelChevron)
                         .frame(width: 44, height: 44)
                     Image(systemName: "paperplane.fill")
                         .font(.system(size: 16))
                         .foregroundColor(.white)
                         .offset(x: 1)
                 }
+                .scaleEffect(sendScale)
             }
+            .animation(.easeInOut(duration: 0.15), value: canSend)
         }
         .padding(.horizontal, 14)
         .padding(.vertical, 12)
