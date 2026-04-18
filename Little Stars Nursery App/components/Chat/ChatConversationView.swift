@@ -27,6 +27,21 @@ struct ChatConversationView: View {
                             .padding(.bottom, 10)
 
                         VStack(spacing: 6) {
+                            if messages.isEmpty {
+                                VStack(spacing: 12) {
+                                    Image(systemName: "bubble.left")
+                                        .font(.system(size: 36))
+                                        .foregroundColor(Color.Theme.primary.opacity(0.4))
+                                    Text("No messages yet.\nSay hello to start the conversation!")
+                                        .font(.system(size: 14))
+                                        .foregroundColor(.gray)
+                                        .multilineTextAlignment(.center)
+                                        .lineSpacing(4)
+                                }
+                                .frame(maxWidth: .infinity)
+                                .padding(.top, 60)
+                            }
+
                             ForEach(messages) { msg in
                                 ChatBubble(message: msg)
                                     .id(msg.id)
@@ -79,29 +94,6 @@ struct ChatConversationView: View {
         let f = DateFormatter()
         f.dateFormat = "h:mm a"
         return f.string(from: Date())
-    }
-}
-
-struct TypingIndicator: View {
-    @State private var animate = false
-
-    var body: some View {
-        HStack(spacing: 5) {
-            ForEach(0..<3, id: \.self) { i in
-                Circle()
-                    .fill(Color.Theme.primary.opacity(0.7))
-                    .frame(width: 7, height: 7)
-                    .scaleEffect(animate ? 1.0 : 0.5)
-                    .opacity(animate ? 1.0 : 0.3)
-                    .animation(
-                        .easeInOut(duration: 0.6)
-                            .repeatForever()
-                            .delay(Double(i) * 0.2),
-                        value: animate
-                    )
-            }
-        }
-        .onAppear { animate = true }
     }
 }
 

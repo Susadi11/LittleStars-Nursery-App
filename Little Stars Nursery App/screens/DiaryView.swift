@@ -31,15 +31,20 @@ struct DiaryView: View {
                     .padding(.top, 20)
                     .padding(.bottom, 28)
 
-                    VStack(spacing: 0) {
-                        ForEach(Array(sampleDiaryEntries.enumerated()), id: \.element.id) { index, entry in
-                            DiaryTimelineRow(
-                                entry: entry,
-                                isLast: index == sampleDiaryEntries.count - 1
-                            )
+                    if sampleDiaryEntries.isEmpty {
+                        DiaryEmptyState()
+                            .padding(.horizontal, 16)
+                    } else {
+                        VStack(spacing: 0) {
+                            ForEach(Array(sampleDiaryEntries.enumerated()), id: \.element.id) { index, entry in
+                                DiaryTimelineRow(
+                                    entry: entry,
+                                    isLast: index == sampleDiaryEntries.count - 1
+                                )
+                            }
                         }
+                        .padding(.horizontal, 16)
                     }
-                    .padding(.horizontal, 16)
 
                     Spacer().frame(height: 110)
                 }
@@ -48,75 +53,27 @@ struct DiaryView: View {
     }
 }
 
-struct DiaryTimelineRow: View {
-    let entry: DiaryEntry
-    let isLast: Bool
 
+struct DiaryEmptyState: View {
     var body: some View {
-        HStack(alignment: .top, spacing: 0) {
-
-            VStack(spacing: 0) {
-                ZStack {
-                    Circle()
-                        .fill(entry.category.color)
-                        .frame(width: 48, height: 48)
-                    Image(systemName: entry.category.icon)
-                        .font(.system(size: 19, weight: .medium))
-                        .foregroundColor(.white)
-                }
-                if !isLast {
-                    Rectangle()
-                        .fill(Color.Theme.diaryLine)
-                        .frame(width: 2)
-                        .frame(minHeight: 40)
-                }
-            }
-            .frame(width: 48)
-
-            DiaryEntryCard(entry: entry)
-                .padding(.leading, 14)
-                .padding(.bottom, isLast ? 0 : 16)
-        }
-    }
-}
-
-struct DiaryEntryCard: View {
-    let entry: DiaryEntry
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-
-            HStack {
-                Text(entry.title)
-                    .font(.system(size: 12, weight: .bold))
-                    .foregroundColor(Color.Theme.secondary)
-                    .kerning(0.8)
-                Spacer()
-                Text(entry.time)
-                    .font(.system(size: 13))
-                    .foregroundColor(.gray)
-            }
-
-            Text(entry.description)
-                .font(.system(size: 15))
-                .foregroundColor(Color.Theme.labelBody)
+        VStack(spacing: 16) {
+            Image(systemName: "calendar.badge.clock")
+                .font(.system(size: 48))
+                .foregroundColor(Color.Theme.primary.opacity(0.5))
+            Text("No Diary Entries Yet")
+                .font(.system(size: 18, weight: .semibold))
+                .foregroundColor(Color.Theme.labelPrimary)
+            Text("Nethan's keyworker hasn't added any entries for today yet. Check back later!")
+                .font(.system(size: 14))
+                .foregroundColor(.gray)
+                .multilineTextAlignment(.center)
                 .lineSpacing(4)
-                .fixedSize(horizontal: false, vertical: true)
-
-            if let name = entry.imageName, let _ = UIImage(named: name) {
-                Image(name)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 160)
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                    .padding(.top, 4)
-            }
         }
-        .padding(16)
+        .frame(maxWidth: .infinity)
+        .padding(32)
         .background(Color.white)
         .cornerRadius(16)
-        .shadow(color: Color.black.opacity(0.06), radius: 8, x: 0, y: 2)
+        .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 2)
     }
 }
 
