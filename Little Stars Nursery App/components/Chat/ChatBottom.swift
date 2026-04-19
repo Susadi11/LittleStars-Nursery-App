@@ -54,6 +54,7 @@ struct ChatBottom: View {
                 }
                 .scaleEffect(sendScale)
             }
+            .accessibilityIdentifier("sendButton")
             .animation(.easeInOut(duration: 0.15), value: canSend)
         }
         .padding(.horizontal, 14)
