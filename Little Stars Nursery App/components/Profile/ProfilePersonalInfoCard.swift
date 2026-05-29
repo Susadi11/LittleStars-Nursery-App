@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct ProfilePersonalInfoCard: View {
-    @State private var isEditing     = false
-    @State private var fullName      = "Nethan Kusal Perera"
-    @State private var preferredName = "Nethan"
-    @State private var nationality   = "Sri Lankan"
-    @State private var address       = "24 Maple Close, London, E4 7NG"
-    private let dob                  = "12 March 2022  •  Age 3"
+    @State private var isEditing = false
+
+    @AppStorage("profile.fullName")      private var fullName      = "Nethan Kusal Perera"
+    @AppStorage("profile.preferredName") private var preferredName = "Nethan"
+    @AppStorage("profile.nationality")   private var nationality   = "Sri Lankan"
+    @AppStorage("profile.address")       private var address       = "24 Maple Close, London, E4 7NG"
+
+    private let dob = "12 March 2022  •  Age 3"
 
     var body: some View {
         ProfileInfoCard(title: "Personal Information", editAction: { isEditing.toggle() }) {

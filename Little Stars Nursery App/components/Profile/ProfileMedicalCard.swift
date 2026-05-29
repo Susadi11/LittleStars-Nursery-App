@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct ProfileMedicalCard: View {
-    @State private var isEditing    = false
-    @State private var condition    = "Asthma"
-    @State private var medication   = "Salbutamol inhaler (Blue)"
-    @State private var bloodType    = "O Positive"
-    @State private var gpName       = "Dr. Sharma, Highfield Surgery"
-    @State private var nhsNumber    = "NHS 123 456 7890"
+    @State private var isEditing = false
+
+    @AppStorage("medical.condition")  private var condition  = "Asthma"
+    @AppStorage("medical.medication") private var medication = "Salbutamol inhaler (Blue)"
+    @AppStorage("medical.bloodType")  private var bloodType  = "O Positive"
+    @AppStorage("medical.gpName")     private var gpName     = "Dr. Sharma, Highfield Surgery"
+    @AppStorage("medical.nhsNumber")  private var nhsNumber  = "NHS 123 456 7890"
 
     var body: some View {
         ProfileInfoCard(title: "Medical Information", editAction: { isEditing.toggle() }) {
@@ -44,18 +45,6 @@ struct ProfileMedicalCard: View {
                     ProfileDetailRow(label: "GP",                value: gpName,     icon: "stethoscope")
                     ProfileDetailRow(label: "NHS Number",        value: nhsNumber,  icon: "number")
 
-                    HStack(spacing: 8) {
-                        Image(systemName: "cross.circle.fill")
-                            .font(.system(size: 14))
-                            .foregroundColor(Color.Theme.secondary)
-                        Text("EpiPen protocol on file — see documents")
-                            .font(.system(size: 12))
-                            .foregroundColor(Color.Theme.labelSubtitle)
-                    }
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 8)
-                    .background(Color.Theme.primary.opacity(0.08))
-                    .cornerRadius(10)
                 }
             }
         }
