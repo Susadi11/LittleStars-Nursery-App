@@ -16,220 +16,27 @@ struct ProfileView: View {
 
                     AppHeaderView()
 
-                    VStack(spacing: 10) {
-                        ZStack(alignment: .bottomTrailing) {
-                            if UIImage(named: "profilePic") != nil {
-                                Image("profilePic")
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 90, height: 90)
-                                    .clipShape(RoundedRectangle(cornerRadius: 24))
-                                    .shadow(color: .black.opacity(0.12), radius: 8, x: 0, y: 3)
-                            } else {
-                                RoundedRectangle(cornerRadius: 24)
-                                    .fill(Color.Theme.primary.opacity(0.15))
-                                    .frame(width: 90, height: 90)
-                            }
-                            ZStack {
-                                Circle()
-                                    .fill(Color.Theme.secondary)
-                                    .frame(width: 24, height: 24)
-                                    .overlay(Circle().stroke(Color.white, lineWidth: 2))
-                                Image(systemName: "pencil")
-                                    .font(.system(size: 10, weight: .bold))
-                                    .foregroundColor(.white)
-                            }
-                            .offset(x: 3, y: 3)
-                        }
-                        .padding(.top, 20)
-
-                        Text("Nathali Perera")
-                            .font(.system(size: 22, weight: .bold))
-                            .foregroundColor(Color.Theme.labelPrimary)
-
-                        Text("Primary Guardian • Nethan's Mom")
-                            .font(.system(size: 13))
-                            .foregroundColor(.gray)
-
-                    }
-                    .frame(maxWidth: .infinity)
-                    .padding(.bottom, 24)
+                    ProfileChildHeaderCard()
+                        .padding(.top, 8)
 
                     VStack(spacing: 12) {
+                        ProfileSectionLabel(title: "CHILD PROFILE")
+                        ProfilePersonalInfoCard()
+                        ProfileFamilyCard()
 
-                        ProfileInfoCard(
-                            title: "Emergency Contacts"
-                        ) {
-                            VStack(alignment: .leading, spacing: 5) {
-                                HStack(spacing: 8) {
-                                    Text("Nadan Perera")
-                                        .font(.system(size: 14, weight: .semibold))
-                                        .foregroundColor(Color.Theme.labelPrimary)
-                                    Text("FATHER")
-                                        .font(.system(size: 10, weight: .bold))
-                                        .foregroundColor(Color.Theme.labelSubtitle)
-                                        .padding(.horizontal, 7)
-                                        .padding(.vertical, 3)
-                                        .background(Color.Theme.iconBg)
-                                        .cornerRadius(6)
-                                }
-                                Text("+94 7141 51567")
-                                    .font(.system(size: 14))
-                                    .foregroundColor(.gray)
-                            }
-                        }
-
-                        ProfileInfoCard(
-                            title: "Medical Information"
-                        ) {
-                            VStack(alignment: .leading, spacing: 6) {
-                                ProfileBullet(text: "Asthma inhaler (Blue)")
-                                ProfileBullet(text: "Blood Type: O Positive")
-                            }
-                        }
-
-                        ProfileInfoCard(
-                            title: "Dietary Preferences"
-                        ) {
-                            HStack(spacing: 8) {
-                                ProfileTag(label: "No Dairy")
-                                ProfileTag(label: "Egg Allergy")
-                                ProfileTag(label: "Vegetarian")
-                            }
-                        }
-
+                        ProfileSectionLabel(title: "HEALTH & WELFARE")
+                        ProfileMedicalCard()
+                        ProfileAllergenCard()
                     }
                     .padding(.horizontal, 16)
+                    .padding(.top, 20)
 
-                    VStack(alignment: .leading, spacing: 0) {
-                        Text("ACCOUNT SETTINGS")
-                            .font(.system(size: 11, weight: .bold))
-                            .foregroundColor(Color.Theme.labelCaption)
-                            .kerning(1.2)
-                            .padding(.horizontal, 16)
-                            .padding(.top, 28)
-                            .padding(.bottom, 10)
-
-                        VStack(spacing: 0) {
-                            ProfileSettingsRow(icon: "lock.fill", label: "Privacy & Security", isDestructive: false, showChevron: true)
-                            Divider()
-                            ProfileSettingsRow(icon: "gear", label: "Settings", isDestructive: false, showChevron: true)
-                            Divider()
-                            ProfileSettingsRow(icon: "rectangle.portrait.and.arrow.right.fill", label: "Sign Out", isDestructive: true, showChevron: false)
-                        }
-                        .background(Color.white)
-                        .cornerRadius(16)
-                        .shadow(color: .black.opacity(0.05), radius: 6, x: 0, y: 2)
-                        .padding(.horizontal, 16)
-                    }
+                    ProfileAccountSettingsCard()
 
                     Spacer().frame(height: 110)
                 }
             }
         }
-    }
-}
-
-struct ProfileInfoCard<Content: View>: View {
-    let iconName: String?
-    let iconColor: Color
-    let iconBg: Color
-    let title: String
-    let content: () -> Content
-
-    init(iconName: String? = nil, iconColor: Color = .clear, iconBg: Color = .clear, title: String, @ViewBuilder content: @escaping () -> Content) {
-        self.iconName  = iconName
-        self.iconColor = iconColor
-        self.iconBg    = iconBg
-        self.title     = title
-        self.content   = content
-    }
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            HStack {
-                if let name = iconName {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 12)
-                            .fill(iconBg)
-                            .frame(width: 40, height: 40)
-                        Image(systemName: name)
-                            .font(.system(size: 17))
-                            .foregroundColor(iconColor)
-                    }
-                }
-                Spacer()
-                Button(action: {}) {
-                    Text("Edit")
-                        .font(.system(size: 13, weight: .semibold))
-                        .foregroundColor(Color.Theme.secondary)
-                }
-            }
-            Text(title)
-                .font(.system(size: 15, weight: .bold))
-                .foregroundColor(Color.Theme.labelPrimary)
-            content()
-        }
-        .padding(16)
-        .background(Color.white)
-        .cornerRadius(16)
-        .shadow(color: Color.black.opacity(0.05), radius: 6, x: 0, y: 2)
-    }
-}
-
-struct ProfileBullet: View {
-    let text: String
-
-    var body: some View {
-        HStack(spacing: 8) {
-            Circle()
-                .fill(Color.Theme.primary)
-                .frame(width: 6, height: 6)
-            Text(text)
-                .font(.system(size: 14))
-                .foregroundColor(Color.Theme.labelBody)
-        }
-    }
-}
-
-struct ProfileTag: View {
-    let label: String
-
-    var body: some View {
-        Text(label)
-            .font(.system(size: 12, weight: .medium))
-            .foregroundColor(Color.Theme.tagText)
-            .padding(.horizontal, 11)
-            .padding(.vertical, 6)
-            .background(Color.Theme.tagBg)
-            .cornerRadius(20)
-    }
-}
-
-struct ProfileSettingsRow: View {
-    let icon: String
-    let label: String
-    var isDestructive: Bool = false
-    var showChevron: Bool = true
-
-    var body: some View {
-        HStack(spacing: 16) {
-            Image(systemName: icon)
-                .font(.system(size: 17))
-                .foregroundColor(isDestructive ? Color.Theme.destructive : Color.Theme.labelAsh)
-                .frame(width: 22)
-            Text(label)
-                .font(.system(size: 15, weight: .medium))
-                .foregroundColor(isDestructive ? Color.Theme.destructive : Color.Theme.labelPrimary)
-            Spacer()
-            if showChevron {
-                Image(systemName: "chevron.right")
-                    .font(.system(size: 13))
-                    .foregroundColor(Color.Theme.labelChevron)
-            }
-        }
-        .padding(.horizontal, 20)
-        .padding(.vertical, 15)
     }
 }
 
