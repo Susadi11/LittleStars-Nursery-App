@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXContainerItemProxy section */
+		F88DF7532FCE0AE900A693EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8CB76022F730CA5001127F9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F88DF7402FCE0AE700A693EE;
+			remoteInfo = "NurseryConnect Vision";
+		};
 		F8D1A3732F940C4500FBD1E1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F8CB76022F730CA5001127F9 /* Project object */;
@@ -24,12 +31,38 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F88DF7412FCE0AE700A693EE /* NurseryConnect Vision.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NurseryConnect Vision.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F88DF7442FCE0AE700A693EE /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = folder; path = RealityKitContent; sourceTree = "<group>"; };
+		F88DF7522FCE0AE900A693EE /* NurseryConnect VisionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NurseryConnect VisionTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8CB760A2F730CA5001127F9 /* Little Stars Nursery App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Little Stars Nursery App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8D1A36F2F940C4500FBD1E1 /* Little Stars Nursery AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Little Stars Nursery AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E2B49D2FA30D0000ACD123 /* Little Stars Nursery AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Little Stars Nursery AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F88DF75C2FCE0AE900A693EE /* Exceptions for "NurseryConnect Vision" folder in "NurseryConnect Vision" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = F88DF7402FCE0AE700A693EE /* NurseryConnect Vision */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		F88DF7422FCE0AE700A693EE /* NurseryConnect Vision */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				F88DF75C2FCE0AE900A693EE /* Exceptions for "NurseryConnect Vision" folder in "NurseryConnect Vision" target */,
+			);
+			path = "NurseryConnect Vision";
+			sourceTree = "<group>";
+		};
+		F88DF7552FCE0AE900A693EE /* NurseryConnect VisionTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "NurseryConnect VisionTests";
+			sourceTree = "<group>";
+		};
 		F8CB760C2F730CA5001127F9 /* Little Stars Nursery App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "Little Stars Nursery App";
@@ -48,6 +81,20 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F88DF73E2FCE0AE700A693EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F88DF74F2FCE0AE900A693EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F8CB76072F730CA5001127F9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -72,12 +119,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F88DF7432FCE0AE700A693EE /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				F88DF7442FCE0AE700A693EE /* RealityKitContent */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
 		F8CB76012F730CA5001127F9 = {
 			isa = PBXGroup;
 			children = (
 				F8CB760C2F730CA5001127F9 /* Little Stars Nursery App */,
 				F8D1A3702F940C4500FBD1E1 /* Little Stars Nursery AppTests */,
 				F8E2B49E2FA30D0000ACD123 /* Little Stars Nursery AppUITests */,
+				F88DF7422FCE0AE700A693EE /* NurseryConnect Vision */,
+				F88DF7432FCE0AE700A693EE /* Packages */,
+				F88DF7552FCE0AE900A693EE /* NurseryConnect VisionTests */,
 				F8CB760B2F730CA5001127F9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,6 +146,8 @@
 				F8CB760A2F730CA5001127F9 /* Little Stars Nursery App.app */,
 				F8D1A36F2F940C4500FBD1E1 /* Little Stars Nursery AppTests.xctest */,
 				F8E2B49D2FA30D0000ACD123 /* Little Stars Nursery AppUITests.xctest */,
+				F88DF7412FCE0AE700A693EE /* NurseryConnect Vision.app */,
+				F88DF7522FCE0AE900A693EE /* NurseryConnect VisionTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,6 +155,51 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F88DF7402FCE0AE700A693EE /* NurseryConnect Vision */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F88DF75D2FCE0AE900A693EE /* Build configuration list for PBXNativeTarget "NurseryConnect Vision" */;
+			buildPhases = (
+				F88DF73D2FCE0AE700A693EE /* Sources */,
+				F88DF73E2FCE0AE700A693EE /* Frameworks */,
+				F88DF73F2FCE0AE700A693EE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				F88DF7422FCE0AE700A693EE /* NurseryConnect Vision */,
+			);
+			name = "NurseryConnect Vision";
+			packageProductDependencies = (
+			);
+			productName = "NurseryConnect Vision";
+			productReference = F88DF7412FCE0AE700A693EE /* NurseryConnect Vision.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F88DF7512FCE0AE900A693EE /* NurseryConnect VisionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F88DF75E2FCE0AE900A693EE /* Build configuration list for PBXNativeTarget "NurseryConnect VisionTests" */;
+			buildPhases = (
+				F88DF74E2FCE0AE900A693EE /* Sources */,
+				F88DF74F2FCE0AE900A693EE /* Frameworks */,
+				F88DF7502FCE0AE900A693EE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F88DF7542FCE0AE900A693EE /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F88DF7552FCE0AE900A693EE /* NurseryConnect VisionTests */,
+			);
+			name = "NurseryConnect VisionTests";
+			packageProductDependencies = (
+			);
+			productName = "NurseryConnect VisionTests";
+			productReference = F88DF7522FCE0AE900A693EE /* NurseryConnect VisionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		F8CB76092F730CA5001127F9 /* Little Stars Nursery App */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F8CB76172F730CA6001127F9 /* Build configuration list for PBXNativeTarget "Little Stars Nursery App" */;
@@ -173,6 +278,13 @@
 				LastSwiftUpdateCheck = 2620;
 				LastUpgradeCheck = 2620;
 				TargetAttributes = {
+					F88DF7402FCE0AE700A693EE = {
+						CreatedOnToolsVersion = 26.2;
+					};
+					F88DF7512FCE0AE900A693EE = {
+						CreatedOnToolsVersion = 26.2;
+						TestTargetID = F88DF7402FCE0AE700A693EE;
+					};
 					F8CB76092F730CA5001127F9 = {
 						CreatedOnToolsVersion = 26.2;
 					};
@@ -203,11 +315,27 @@
 				F8CB76092F730CA5001127F9 /* Little Stars Nursery App */,
 				F8D1A36E2F940C4500FBD1E1 /* Little Stars Nursery AppTests */,
 				F8E2B49C2FA30D0000ACD123 /* Little Stars Nursery AppUITests */,
+				F88DF7402FCE0AE700A693EE /* NurseryConnect Vision */,
+				F88DF7512FCE0AE900A693EE /* NurseryConnect VisionTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F88DF73F2FCE0AE700A693EE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F88DF7502FCE0AE900A693EE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F8CB76082F730CA5001127F9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -232,6 +360,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F88DF73D2FCE0AE700A693EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F88DF74E2FCE0AE900A693EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F8CB76062F730CA5001127F9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -256,6 +398,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		F88DF7542FCE0AE900A693EE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F88DF7402FCE0AE700A693EE /* NurseryConnect Vision */;
+			targetProxy = F88DF7532FCE0AE900A693EE /* PBXContainerItemProxy */;
+		};
 		F8D1A3742F940C4500FBD1E1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F8CB76092F730CA5001127F9 /* Little Stars Nursery App */;
@@ -269,6 +416,116 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		F88DF7582FCE0AE900A693EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LS2FQ5NR65;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.susadi.LittleStars.NurseryConnect-Vision";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = xros;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 7;
+				XROS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Debug;
+		};
+		F88DF7592FCE0AE900A693EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LS2FQ5NR65;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.susadi.LittleStars.NurseryConnect-Vision";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = xros;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 7;
+				XROS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Release;
+		};
+		F88DF75A2FCE0AE900A693EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LS2FQ5NR65;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.susadi.LittleStars.NurseryConnect-VisionTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = xros;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 7;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NurseryConnect Vision.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NurseryConnect Vision";
+				XROS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Debug;
+		};
+		F88DF75B2FCE0AE900A693EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LS2FQ5NR65;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.susadi.LittleStars.NurseryConnect-VisionTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = xros;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 7;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NurseryConnect Vision.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NurseryConnect Vision";
+				XROS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Release;
+		};
 		F8CB76152F730CA6001127F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -541,6 +798,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F88DF75D2FCE0AE900A693EE /* Build configuration list for PBXNativeTarget "NurseryConnect Vision" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F88DF7582FCE0AE900A693EE /* Debug */,
+				F88DF7592FCE0AE900A693EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F88DF75E2FCE0AE900A693EE /* Build configuration list for PBXNativeTarget "NurseryConnect VisionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F88DF75A2FCE0AE900A693EE /* Debug */,
+				F88DF75B2FCE0AE900A693EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F8CB76052F730CA5001127F9 /* Build configuration list for PBXProject "Little Stars Nursery App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
