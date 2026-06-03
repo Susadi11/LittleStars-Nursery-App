@@ -11,7 +11,9 @@ import SwiftUI
 struct NurseryConnect_VisionApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            VisionRootView()
+                .frame(minWidth: 900, minHeight: 600)
         }
+        .windowStyle(.plain)
     }
 }

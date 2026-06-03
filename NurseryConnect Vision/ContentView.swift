@@ -9,12 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("NurseryConnect Vision")
-            .font(.largeTitle)
-            .padding()
+        VisionRootView()
     }
-}
-
-#Preview(windowStyle: .automatic) {
-    ContentView()
 }
