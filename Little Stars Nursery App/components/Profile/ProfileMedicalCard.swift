@@ -31,10 +31,12 @@ struct ProfileMedicalCard: View {
                         Button("Cancel") { isEditing = false }
                             .font(.system(size: 13, weight: .semibold))
                             .foregroundColor(Color.Theme.labelAsh)
+                            .keyboardShortcut(.escape, modifiers: [])
                         Spacer()
                         Button("Save") { isEditing = false }
                             .font(.system(size: 13, weight: .semibold))
                             .foregroundColor(Color.Theme.secondary)
+                            .keyboardShortcut("s", modifiers: .command)
                     }
                     .padding(.top, 4)
 
