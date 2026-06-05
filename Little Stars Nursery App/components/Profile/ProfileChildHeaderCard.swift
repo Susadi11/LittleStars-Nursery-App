@@ -6,52 +6,33 @@
 //
 
 import SwiftUI
-import PhotosUI
 
 struct ProfileChildHeaderCard: View {
-    @State private var selectedPhoto: PhotosPickerItem?
-    @State private var childImage: Image?
 
     var body: some View {
         VStack(spacing: 0) {
 
-            // Child photo with PhotosUI picker
-            PhotosPicker(selection: $selectedPhoto, matching: .images) {
-                Group {
-                    if let childImage {
-                        childImage
-                            .resizable()
-                            .scaledToFill()
-                    } else if UIImage(named: "profilePic") != nil {
-                        Image("profilePic")
-                            .resizable()
-                            .scaledToFill()
-                    } else {
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(Color.Theme.primary.opacity(0.18))
-                            .overlay(
-                                Image(systemName: "person.fill")
-                                    .font(.system(size: 38))
-                                    .foregroundColor(Color.Theme.secondary)
-                            )
-                    }
-                }
-                .frame(width: 82, height: 82)
-                .clipShape(RoundedRectangle(cornerRadius: 20))
-                .shadow(color: .black.opacity(0.10), radius: 8, x: 0, y: 3)
-            }
-            .onChange(of: selectedPhoto) { newItem in
-                Task {
-                    if let data = try? await newItem?.loadTransferable(type: Data.self),
-                       let uiImage = UIImage(data: data) {
-                        childImage = Image(uiImage: uiImage)
-                    }
+            Group {
+                if UIImage(named: "profilePic") != nil {
+                    Image("profilePic")
+                        .resizable()
+                        .scaledToFill()
+                } else {
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(Color.Theme.primary.opacity(0.18))
+                        .overlay(
+                            Image(systemName: "person.fill")
+                                .font(.system(size: 38))
+                                .foregroundColor(Color.Theme.secondary)
+                        )
                 }
             }
+            .frame(width: 82, height: 82)
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .shadow(color: .black.opacity(0.10), radius: 8, x: 0, y: 3)
             .padding(.top, 16)
             .padding(.bottom, 10)
 
-            // Name, age, room
             VStack(spacing: 5) {
                 Text("Nethan Perera")
                     .font(.system(size: 22, weight: .bold))
@@ -62,13 +43,12 @@ struct ProfileChildHeaderCard: View {
             }
             .padding(.bottom, 18)
 
-            // Stats row
             HStack(spacing: 0) {
-                ProfileStatItem(value: "14",       label: "Weeks Enrolled", icon: "calendar")
+                ProfileStatItem(value: "14",        label: "Weeks Enrolled", icon: "calendar")
                 Divider().frame(height: 36)
-                ProfileStatItem(value: "Olivia M.", label: "Keyworker",     icon: "person.fill")
+                ProfileStatItem(value: "Olivia M.", label: "Keyworker",      icon: "person.fill")
                 Divider().frame(height: 36)
-                ProfileStatItem(value: "Full Day",  label: "Session",       icon: "clock.fill")
+                ProfileStatItem(value: "Full Day",  label: "Session",        icon: "clock.fill")
             }
             .padding(.vertical, 14)
             .background(Color.white)

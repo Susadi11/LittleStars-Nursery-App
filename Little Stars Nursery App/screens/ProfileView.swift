@@ -28,6 +28,9 @@ struct ProfileView: View {
                         ProfileSectionLabel(title: "HEALTH & WELFARE")
                         ProfileMedicalCard()
                         ProfileAllergenCard()
+
+                        ProfileSectionLabel(title: "REPORTS")
+                        ProfileWeeklyReportCard()
                     }
                     .padding(.horizontal, 16)
                     .padding(.top, 20)
